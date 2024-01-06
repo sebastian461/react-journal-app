@@ -9,11 +9,15 @@ import "@fontsource/roboto/400.css";
 import "@fontsource/roboto/500.css";
 import "@fontsource/roboto/700.css";
 import { AppTheme } from "./theme";
+import { Provider } from "react-redux";
+import { store } from "./store";
 
 ReactDOM.createRoot(document.getElementById("root")).render(
   <React.StrictMode>
-    <AppTheme>
-      <RouterProvider router={AppRouter} />
-    </AppTheme>
+    <Provider store={store}>
+      <AppTheme>
+        <RouterProvider router={AppRouter} />
+      </AppTheme>
+    </Provider>
   </React.StrictMode>
 );
