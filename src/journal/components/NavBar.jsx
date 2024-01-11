@@ -7,8 +7,16 @@ import {
   Toolbar,
   Typography,
 } from "@mui/material";
+import { useDispatch } from "react-redux";
+import { starLogout } from "../../store/auth";
 
 export const NavBar = ({ drawerWidth }) => {
+  const dispatch = useDispatch();
+
+  const onLogout = () => {
+    dispatch(starLogout());
+  };
+
   return (
     <Box sx={{ flexGrow: 1 }}>
       <AppBar
@@ -35,7 +43,7 @@ export const NavBar = ({ drawerWidth }) => {
             <Typography variant="h6" noWrap component="div">
               JournalApp
             </Typography>
-            <IconButton color="error">
+            <IconButton color="error" onClick={onLogout}>
               <LogoutOutlined />
             </IconButton>
           </Grid>
