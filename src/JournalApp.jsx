@@ -1,11 +1,8 @@
-import { Outlet } from "react-router-dom";
+import { RouterProvider, createBrowserRouter } from "react-router-dom";
+import { AppRouter } from "./router/AppRouter";
 
 export const JournalApp = () => {
-  return (
-    <>
-      <div id="detail">
-        <Outlet />
-      </div>
-    </>
-  );
+  const router = createBrowserRouter(AppRouter());
+
+  return <RouterProvider router={router} />;
 };
