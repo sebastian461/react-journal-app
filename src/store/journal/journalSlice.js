@@ -19,7 +19,9 @@ export const journalSlice = createSlice({
     setActiveNote: (state, action) => {
       state.active = action.payload;
     },
-    setNotes: (state, actions) => {},
+    setNotes: (state, actions) => {
+      state.notes = actions.payload;
+    },
     setSaving: (state) => {},
     updateNote: (state, action) => {},
     deleteNoteByIs: (state, action) => {},
