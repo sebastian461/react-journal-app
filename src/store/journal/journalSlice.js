@@ -26,7 +26,6 @@ export const journalSlice = createSlice({
     setSaving: (state) => {
       state.isSaving = true;
       state.messageSaved = "";
-      //TODO: mensaje de error
     },
     updateNote: (state, action) => {
       state.notes = state.notes.map((note) =>
@@ -35,6 +34,10 @@ export const journalSlice = createSlice({
       state.isSaving = false;
 
       state.messageSaved = `${action.payload.title}, actualizada correctamente`;
+    },
+    setPhotosToActiveNote: (state, action) => {
+      state.active.imageURLs = [...state.active.imageURLs, ...action.payload];
+      state.isSaving = false;
     },
     deleteNoteById: (state, action) => {},
   },
@@ -46,6 +49,7 @@ export const {
   savingNewNote,
   setActiveNote,
   setNotes,
+  setPhotosToActiveNote,
   setSaving,
   updateNote,
 } = journalSlice.actions;
